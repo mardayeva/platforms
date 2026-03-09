@@ -7,18 +7,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "dev-secret-key")
 
-DEBUG = os.getenv("DEBUG", "False").lower() == "true"
+DEBUG = True
 
-# Hostlar environment orqali berilsa ishlatamiz, bo'lmasa local + Render wildcard.
-ALLOWED_HOSTS = [
+ALLOWED_HOSTS = ['https://nurichkaa.onrender.com/'
     "127.0.0.1",
     "localhost",
     ".onrender.com",
 ]
-
-allowed_hosts_env = os.getenv("ALLOWED_HOSTS", "")
-if allowed_hosts_env:
-    ALLOWED_HOSTS.extend([h.strip() for h in allowed_hosts_env.split(",") if h.strip()])
 
 # APPLICATIONS
 INSTALLED_APPS = [
@@ -138,15 +133,11 @@ RENDER_EXTERNAL_HOSTNAME = os.getenv("RENDER_EXTERNAL_HOSTNAME")
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
-CSRF_TRUSTED_ORIGINS = ["https://*.onrender.com"]
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.onrender.com"
+]
 
-csrf_trusted_origins_env = os.getenv("CSRF_TRUSTED_ORIGINS", "")
-if csrf_trusted_origins_env:
-    CSRF_TRUSTED_ORIGINS.extend(
-        [origin.strip() for origin in csrf_trusted_origins_env.split(",") if origin.strip()]
-    )
-
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+SECURE_PROXY_SSL_HEADER = ('HTTPS_X_FORWARDED_PROTO', 'https')
 
 # PRODUCTION SECURITY
 SECURE_SSL_REDIRECT = False
