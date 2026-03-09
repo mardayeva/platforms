@@ -10,7 +10,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "dev-secret-key")
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "nurichkaa.onrender.com",
+    "platforms-1.onrender.com",
     "127.0.0.1",
     "localhost",
     ".onrender.com",
