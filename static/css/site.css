@@ -761,6 +761,16 @@ main {
   width: min(920px, 96%);
 }
 
+.course-create-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 24px;
+}
+
+.course-create-col {
+  width: min(860px, 96%);
+}
+
 .join-course-wrap {
   display: flex;
   justify-content: center;
